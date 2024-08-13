@@ -86,7 +86,7 @@ def secure_storage_get_cert_path(cpf):
     cpf_part = cpf[-4:]  # Use last 4 digits of CPF
     for filename in os.listdir(CERT_DIR):
         if filename.endswith('.p12') and filename.endswith(cpf_part + '.p12'):
-            return os.path.join(CERT_DIR, filename)
+            return filename
     raise FileNotFoundError("Certificado não encontrado para o CPF fornecido.")
 
 @app.route('/authenticate', methods=['POST'])
